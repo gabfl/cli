@@ -46,7 +46,7 @@ truncate_path() {
 
 # PROMPT="[%*] %(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
 # PROMPT='[%*] %(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}$(truncate_path)%{$reset_color%}'
-PROMPT='[%*] %{$fg[yellow]%}%m%{$reset_color%} %(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}$(truncate_path)%{$reset_color%}'
+PROMPT='[%*] $( [[ -n $SSH_CONNECTION ]] && print -Pn "%{$fg_bold[red]%}[REMOTE:%m]%{$reset_color%} " )%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}$(truncate_path)%{$reset_color%}'
 PROMPT+=' $(git_prompt_info)'
 
 # Python venv
