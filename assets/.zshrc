@@ -143,6 +143,23 @@ function mkcd {
     fi
 }
 
+# Auto venv
+venv() {
+    for dir in venv .venv; do
+        if [ -f "$dir/bin/activate" ]; then
+            source "$dir/bin/activate"
+            return
+        fi
+    done
+
+    echo "No virtualenv found"
+    read -k 1 "REPLY?Create a new venv? (y/n) "
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        python3 -m venv venv && source venv/bin/activate
+    fi
+}
+
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
