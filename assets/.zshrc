@@ -122,7 +122,7 @@ function gstatus() { git status -u; }
 function gadd() { git add $1; }
 function gadd_all() { git add .; }
 function glog() { git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short -20; }
-function gcommit() { git commit -S -m "$1"; }
+function gcommit() { git commit -m "$1"; }
 function gcurrent() { git rev-parse --abbrev-ref HEAD; }
 function gpull() { git pull origin `git rev-parse --abbrev-ref HEAD`; }
 function gpush() { git push origin `git rev-parse --abbrev-ref HEAD`; }
