@@ -76,6 +76,7 @@ plugins=(
     dotenv
     python
     zsh-autosuggestions
+    z
 )
 
 source $ZSH/oh-my-zsh.sh
